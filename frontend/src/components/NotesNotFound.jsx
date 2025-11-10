@@ -14,6 +14,10 @@ const NotesNotFound = () => {
       <Link to="/create" className="btn btn-primary">
         Create Your First Note
       </Link>
+
+      <Link to="/create" className="btn btn-primary">
+        Ping Server
+      </Link>
     </div>
   );
 };

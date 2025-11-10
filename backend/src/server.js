@@ -12,9 +12,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 const __dirname = path.resolve();
-
+console.log(__dirname)
 // middleware
-if (process.env.NODE_ENV !== "production") {
+ if (process.env.NODE_ENV !== "production") {
   app.use(
     cors({
       origin: "http://localhost:5173",
@@ -29,7 +29,9 @@ app.use(rateLimiter);
 //   console.log(`Req method is ${req.method} & Req URL is ${req.url}`);
 //   next();
 // });
-
+app.use("/api/ping", (req, res) => {
+  res.send("pong");
+});
 app.use("/api/notes", notesRoutes);
 
 if (process.env.NODE_ENV === "production") {
